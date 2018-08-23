@@ -100,13 +100,6 @@
                         android:layout_height="wrap_content"
                         android:onClick="@{handler::updateUserClick}"
                         android:text="Update User" />
-
-
-                    <Button
-                        android:id="@+id/btn_DesignPattern"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Design Pattern" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
