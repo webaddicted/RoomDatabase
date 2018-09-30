@@ -8,4 +8,10 @@ import android.app.Application;
 
 public class GlobalClass extends Application {
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        Stetho.initializeWithDefaults(this);
+    }
 }
