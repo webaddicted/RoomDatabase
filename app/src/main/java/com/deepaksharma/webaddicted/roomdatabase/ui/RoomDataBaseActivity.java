@@ -1,21 +1,25 @@
 package com.deepaksharma.webaddicted.roomdatabase.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.arch.persistence.room.Room;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.deepaksharma.webaddicted.roomdatabase.GlobalClass;
 import com.deepaksharma.webaddicted.roomdatabase.R;
 import com.deepaksharma.webaddicted.roomdatabase.databinding.ActivityMainBinding;
-import com.deepaksharma.webaddicted.roomdatabase.db.MyAppDatabase;
+import com.deepaksharma.webaddicted.roomdatabase.db.entity.UserDetailsObj;
+import com.google.gson.Gson;
+
+import java.util.List;
 
 
 public class RoomDataBaseActivity extends AppCompatActivity implements RoomListener {
     private ActivityMainBinding activityRoomDataBaseBinding;
     private RoomDBViewModel roomDBViewModel;
-    public static MyAppDatabase myAppDatabase;
+    private static final String TAG = RoomDataBaseActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,6 @@ public class RoomDataBaseActivity extends AppCompatActivity implements RoomListe
         activityRoomDataBaseBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityRoomDataBaseBinding.setHandler(new RoomHandler(this));
         roomDBViewModel = ViewModelProviders.of(this).get(RoomDBViewModel.class);
-        myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "user_info")
-                .allowMainThreadQueries().build();
     }
 
     @Override
@@ -57,9 +59,26 @@ public class RoomDataBaseActivity extends AppCompatActivity implements RoomListe
         if (updateId != null && updateId.length() > 0) {
             int updateUid = Integer.parseInt(activityRoomDataBaseBinding.edtUpdateUserId.getText().toString());
             activityRoomDataBaseBinding.txtUpdateUser.setText(roomDBViewModel.updateUserInfo(updateUid));
-        }else {
+        } else {
             activityRoomDataBaseBinding.edtUpdateUserId.setError("Please enter update id.");
         }
+
+    }
+
+    @Override
+    public void onInserObjClick() {
+        Gson gson = new Gson();
+        // Or use new GsonBuilder().create();
+        UserDetailsObj userDetails = gson.fromJson(roomDBViewModel.loadJSONFromAsset(), UserDetailsObj.class);
+        GlobalClass.getDbInstance().insertUserObj(userDetails);
+        List<UserDetailsObj> getUserInfo = GlobalClass.getDbInstance().getUserObj();
+        Log.d(TAG, "insert object info onClick: " + getUserInfo.get(0).getMain().getPressure());
+        Toast.makeText(this, "Successfully inserted. \nPressure -> "+getUserInfo.get(0).getMain().getPressure(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void insertJsonArray() {
 
     }
 }

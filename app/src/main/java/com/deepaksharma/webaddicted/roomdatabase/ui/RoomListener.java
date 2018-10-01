@@ -12,4 +12,8 @@ public interface RoomListener {
     void ondeleteUserClick();
 
     void onupdateUserClick();
+
+    void onInserObjClick();
+
+    void insertJsonArray();
 }

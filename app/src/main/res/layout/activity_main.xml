@@ -100,6 +100,20 @@
                         android:layout_height="wrap_content"
                         android:onClick="@{handler::updateUserClick}"
                         android:text="Update User" />
+
+                    <Button
+                        android:id="@+id/btn_insertJsonObj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{handler::insertJsonObj}"
+                        android:text="inser json object" />
+                    <Button
+                        android:id="@+id/btn_insertJsonArray"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{handler::insertJsonArray}"
+                        android:text="inser json Array" />
+
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

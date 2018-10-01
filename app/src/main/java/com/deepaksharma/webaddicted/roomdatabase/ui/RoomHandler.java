@@ -28,4 +28,11 @@ public class RoomHandler {
         mRoomListener.onupdateUserClick();
     }
 
+    public void insertJsonObj(View v) {
+        mRoomListener.onInserObjClick();
+    }
+
+    public void insertJsonArray(View v) {
+        mRoomListener.insertJsonArray();
+    }
 }

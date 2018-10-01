@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 
+import com.deepaksharma.webaddicted.roomdatabase.db.entity.UserDetailsObj;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.UserInfo;
 
 import java.util.List;
@@ -17,8 +18,14 @@ public interface MyDao {
     @Insert
     public void addUser(UserInfo userInfo);
 
+    @Insert
+    public void insertUserObj(UserDetailsObj userDetails);
+
     @Query("SELECT * FROM user_info")
     public List<UserInfo> getUserInfo();
+
+    @Query("SELECT * FROM user_details_obj")
+    public List<UserDetailsObj> getUserObj();
 
     @Delete
     public void deleteUser(UserInfo userInfo);
