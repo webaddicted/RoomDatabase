@@ -1,4 +1,4 @@
-package com.deepaksharma.webaddicted.roomdatabase.ui;
+package com.deepaksharma.webaddicted.roomdatabase.ui.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
+
+import static com.deepaksharma.webaddicted.roomdatabase.utils.Utilities.randomBox;
 
 public class RoomDBViewModel extends ViewModel {
 private static final String TAG = RoomDBViewModel.class.getSimpleName();
@@ -71,31 +73,5 @@ private static final String TAG = RoomDBViewModel.class.getSimpleName();
         }
         return stringBuilder + "";
     }
-
-
-    public static int randomBox() {
-        Random rand = new Random();
-        int pickedNumber = rand.nextInt(100);
-        return pickedNumber;
-    }
-
-
-
-    public String loadJSONFromAsset() {
-         String json = null;
-         try {
-             InputStream is = GlobalClass.getInstance().getAssets().open("user_info.json");
-             int size = is.available();
-             byte[] buffer = new byte[size];
-             is.read(buffer);
-             is.close();
-             json = new String(buffer, "UTF-8");
-         } catch (IOException ex) {
-             ex.printStackTrace();
-             Log.d(TAG, "loadJSONFromAsset: "+ex.getMessage());
-             return null;
-         }
-         return json;
-     }
 
 }

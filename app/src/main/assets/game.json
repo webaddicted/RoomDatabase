@@ -1,0 +1,164 @@
+{"success": true,
+  "message": " Get successfully.",
+  "result": [
+    {
+      "totalData": 3,
+      "page": 1,
+      "data": [
+        {
+          "_id": "5bc5c2fcac10672dbc1d186c",
+          "template": "Game 2",
+          "envObj": [
+            {
+              "_id": "5bc5c2fcac10672dbc1d186d",
+              "id": "",
+              "name": "beach",
+              "height": 1,
+              "width": 1,
+              "actheight": 480,
+              "actwidth": 300
+            }
+          ],
+          "gameObj": [
+            {
+              "_id": "5bc5c2fcac10672dbc1d186f",
+              "id": "",
+              "name": "dog",
+              "height": 0.22916666666666666,
+              "width": 0.45,
+              "actheight": 110,
+              "actwidth": 135,
+              "x": 0.27666666666666667,
+              "y": 0.41458333333333336,
+              "actx": 83,
+              "acty": 199
+            },
+            {
+              "_id": "5bc5c2fcac10672dbc1d186e",
+              "id": "",
+              "name": "fielder",
+              "height": 0.175,
+              "width": 0.36333333333333334,
+              "actheight": 84,
+              "actwidth": 109,
+              "x": 0.11,
+              "y": 0.7166666666666667,
+              "actx": 33,
+              "acty": 344
+            }
+          ],
+          "zoneObj": [
+            {
+              "_id": "5bc5c2fcac10672dbc1d1871",
+              "id": "",
+              "name": "out_zone",
+              "height": 0.1875,
+              "width": 0.49666666666666665,
+              "actheight": 90,
+              "actwidth": 149,
+              "x": 0.07333333333333333,
+              "y": 0.7104166666666667,
+              "actx": 22,
+              "acty": 341,
+              "sequence": 1
+            },
+            {
+              "_id": "5bc5c2fcac10672dbc1d1870",
+              "id": "",
+              "name": "batter-safe-zone",
+              "height": 0.1875,
+              "width": 0.49666666666666665,
+              "actheight": 90,
+              "actwidth": 149,
+              "x": 0.26666666666666666,
+              "y": 0.41875,
+              "actx": 80,
+              "acty": 201,
+              "sequence": 2
+            }
+          ],
+          "plotWidth": 300,
+          "plotHeight": 480,
+          "templateSrc": "http://10.11.6.18:3700/profile/lvFetMKi3PBg_1539687164.png"
+        },
+        {
+          "_id": "5bc5c1a8ef4af526245230f8",
+          "template": "game 1",
+          "envObj": [
+            {
+              "_id": "5bc5c1a8ef4af526245230f9",
+              "id": "",
+              "name": "background",
+              "height": 1,
+              "width": 1,
+              "actheight": 480,
+              "actwidth": 300
+            }
+          ],
+          "gameObj": [
+            {
+              "_id": "5bc5c1a8ef4af526245230fb",
+              "id": "",
+              "name": "bowler",
+              "height": 0.17916666666666667,
+              "width": 0.24,
+              "actheight": 86,
+              "actwidth": 72,
+              "x": 0.20666666666666667,
+              "y": 0.14583333333333334,
+              "actx": 62,
+              "acty": 70
+            },
+            {
+              "_id": "5bc5c1a8ef4af526245230fa",
+              "id": "",
+              "name": "dog",
+              "height": 0.22916666666666666,
+              "width": 0.45,
+              "actheight": 110,
+              "actwidth": 135,
+              "x": 0.20666666666666667,
+              "y": 0.47708333333333336,
+              "actx": 62,
+              "acty": 229
+            }
+          ],
+          "zoneObj": [
+            {
+              "_id": "5bc5c1a8ef4af526245230fd",
+              "id": "",
+              "name": "out_zone",
+              "height": 0.1875,
+              "width": 0.49666666666666665,
+              "actheight": 90,
+              "actwidth": 149,
+              "x": 0.09666666666666666,
+              "y": 0.14791666666666667,
+              "actx": 29,
+              "acty": 71,
+              "sequence": 1
+            },
+            {
+              "_id": "5bc5c1a8ef4af526245230fc",
+              "id": "",
+              "name": "game_winning_zone",
+              "height": 0.260930739368707,
+              "width": 0.6911765362833304,
+              "actheight": 125.24675489697935,
+              "actwidth": 207.35296088499913,
+              "x": 0.09666666666666666,
+              "y": 0.4625,
+              "actx": 29,
+              "acty": 222,
+              "sequence": 2
+            }
+          ],
+          "plotWidth": 300,
+          "plotHeight": 480,
+          "templateSrc": "http://10.11.6.18:3700/profile/o5xdxMim4xdG_1539686824.png"
+        }
+      ]
+    }
+  ],
+  "code": 200
+}
