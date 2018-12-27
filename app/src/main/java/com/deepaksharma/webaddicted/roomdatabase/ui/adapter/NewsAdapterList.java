@@ -62,7 +62,7 @@ public class NewsAdapterList extends PagedListAdapter<Pagination.ArticlesBean, N
         }
         public void bindTO(Pagination.ArticlesBean coupon){
             binding.txtTitle.setText(coupon.getTitle());
-            binding.txtDesc.setText(coupon.getId()+"");
+            binding.txtDesc.setText(coupon.getDescription()+"");
             Glide.with(mActivity).load(coupon.getUrlToImage()).into(binding.imgUrl);
             Log.d(TAG, "bindTO: "+coupon.getUrl());
         }

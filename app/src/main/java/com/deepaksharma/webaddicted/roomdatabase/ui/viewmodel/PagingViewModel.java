@@ -13,7 +13,7 @@ public class PagingViewModel extends ViewModel {
     public LiveData<PagedList<Pagination.ArticlesBean>> newsLiveData;
 
     public void init() {
-        LivePagedListBuilder<Integer, Pagination.ArticlesBean> livePagedListBuilder = new LivePagedListBuilder(GlobalClass.getDbInstance().newsssss(), 20);
+        LivePagedListBuilder<Integer, Pagination.ArticlesBean> livePagedListBuilder = new LivePagedListBuilder(GlobalClass.getDbInstance().newsssss(), 25);
         livePagedListBuilder.setBoundaryCallback(new NEWSBoundaryCallBack());
         newsLiveData = livePagedListBuilder.build();
     }
