@@ -1,5 +1,6 @@
 package com.deepaksharma.webaddicted.roomdatabase.db.dao;
 
+import android.arch.paging.DataSource;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -11,6 +12,7 @@ import android.arch.persistence.room.Update;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameBean;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameInsert;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameTemp;
+import com.deepaksharma.webaddicted.roomdatabase.db.entity.Pagination;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.UserDetailsObj;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.UserInfo;
 
@@ -47,16 +49,17 @@ public interface MyDao {
     @Query("SELECT * FROM GameTemp gt inner join EnvObjBean et on gt.id_temmmp = et.id_parent inner join ZoneObjBean zt on et.id_parent = zt.id_parent")
     public List<GameInsert> getGameInfo();
 
-//    @Insert//(onConflict = OnConflictStrategy.REPLACE)
-//    public void gameInsert( gameInsert);
+//paging START
+    @Insert//(onConflict = OnConflictStrategy.REPLACE)
+    public void insertArtist(List<Pagination.ArticlesBean> articlesBeans);
 
+    //to fetch data required to display in each page
+    @Query("SELECT * FROM ArticlesBean WHERE  id >= :id LIMIT :size")
+    public List<Pagination.ArticlesBean> getCouponsBySize(int id, int size);
 
+    @Query("SELECT * FROM ArticlesBean")
+    public DataSource.Factory<Integer, Pagination.ArticlesBean> newsssss();
 
-//    @Query("SELECT * FROM user_info where user_name LIKE  :name")
-//    UserInfo findByName(String firstName, String lastName);
-////    @Query("SELECT * FROM user where user_name LIKE  :name AND last_name LIKE :lastName")
-////    UserInfo findByName(String firstName, String lastName);
-//
-//    @Query("SELECT COUNT(*) from user_info")
-//    int countUsers();
+    @Query("DELETE FROM ArticlesBean")
+    public void clearSData();
 }

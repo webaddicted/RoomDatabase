@@ -1,6 +1,7 @@
 package com.deepaksharma.webaddicted.roomdatabase.ui.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +43,11 @@ public class RoomDataBaseActivity extends AppCompatActivity {
         Toast.makeText(this, "Add User", Toast.LENGTH_SHORT).show();
         activityRoomDataBaseBinding.txtAddUser.setText(roomDBViewModel.addUserInfo() + "");
     }
+    public void btnPaging(View v) {
+        Toast.makeText(this, "Add User", Toast.LENGTH_SHORT).show();
+    startActivity(new Intent(RoomDataBaseActivity.this, PagingActivity.class));
+    }
+
 
 
     public void onviewUserClick(View v) {

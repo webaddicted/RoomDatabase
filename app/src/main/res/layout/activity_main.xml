@@ -116,6 +116,12 @@
                         android:layout_height="wrap_content"
                         android:onClick="insertJsonArray"
                         android:text="inser json Array" />
+                    <Button
+                        android:id="@+id/btn_paging"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="btnPaging"
+                        android:text="pagination activity" />
                     <!--android:onClick="@{handler::insertJsonArray}"-->
                 </LinearLayout>
             </ScrollView>
