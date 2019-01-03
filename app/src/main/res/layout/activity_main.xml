@@ -40,7 +40,21 @@
                         android:id="@+id/txt_AddUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-
+                    <ImageView
+                        android:id="@+id/img_user"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:scaleX="3.7"
+                        android:layout_height="100dp" />
+                    <com.deepaksharma.webaddicted.roomdatabase.utils.DynamicImageView
+                        android:id="@+id/img_user12"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:layout_height="100dp" />
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -122,6 +136,7 @@
                         android:layout_height="wrap_content"
                         android:onClick="btnPaging"
                         android:text="pagination activity" />
+
                     <!--android:onClick="@{handler::insertJsonArray}"-->
                 </LinearLayout>
             </ScrollView>

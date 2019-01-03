@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameBean;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameInsert;
 import com.deepaksharma.webaddicted.roomdatabase.GameModel.gamedb.GameTemp;
@@ -36,6 +37,12 @@ public class RoomDataBaseActivity extends AppCompatActivity {
 //        roomHandler = new RoomHandler();
          gameBean = Utilities.getGson().fromJson(Utilities.loadJSONFromAsset("game.json"), GameBean.class);
         activityRoomDataBaseBinding.setHandler(roomHandler);
+//        Glide.with(getBaseContext())
+//                .load(R.mipmap.ic_launcher)
+////                .apply(RequestOptions.placeholderOf(R.mipmap.no_wifi)
+//                        .error(R.mipmap.ic_launcher)
+//                        .override(550,100)
+//                .into(activityRoomDataBaseBinding.imgUser);
     }
 
 
