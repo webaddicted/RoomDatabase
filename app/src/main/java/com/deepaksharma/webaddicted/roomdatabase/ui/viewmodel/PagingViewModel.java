@@ -8,13 +8,18 @@ import android.arch.paging.PagedList;
 import com.deepaksharma.webaddicted.roomdatabase.GlobalClass;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.Pagination;
 import com.deepaksharma.webaddicted.roomdatabase.ui.NEWSBoundaryCallBack;
+import com.deepaksharma.webaddicted.roomdatabase.ui.activity.PagingActivity;
 
 public class PagingViewModel extends ViewModel {
     public LiveData<PagedList<Pagination.ArticlesBean>> newsLiveData;
 
-    public void init() {
+    public void init(PagingActivity pagingActivity) {
         LivePagedListBuilder<Integer, Pagination.ArticlesBean> livePagedListBuilder = new LivePagedListBuilder(GlobalClass.getDbInstance().newsssss(), 25);
-        livePagedListBuilder.setBoundaryCallback(new NEWSBoundaryCallBack());
+        livePagedListBuilder.setBoundaryCallback(new NEWSBoundaryCallBack(pagingActivity));
         newsLiveData = livePagedListBuilder.build();
+    }
+
+    public LiveData<PagedList<Pagination.ArticlesBean>> getArticResp(){
+        return newsLiveData;
     }
 }

@@ -70,7 +70,7 @@ public class APIResponse {
 
                 if (response.body() != null) {
 //                          NearByNurse nearByNurse = (NearByNurse) response.body(); // use the user object for the other fields
-                    apiListener.success(strApiName, response.body().toString());
+                    apiListener.success(strApiName, response.body());
                     progressDialog.dismiss();
                 } else {
                     try {
