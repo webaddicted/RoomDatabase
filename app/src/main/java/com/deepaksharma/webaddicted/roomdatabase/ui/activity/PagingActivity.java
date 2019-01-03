@@ -27,10 +27,13 @@ public class PagingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_paging);
         pagingViewModel = ViewModelProviders.of(this).get(PagingViewModel.class);
+
         pagingViewModel.init();
+
         newsAdapter = new NewsAdapterList(this);
         mBinding.couponsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mBinding.couponsRv.setAdapter(newsAdapter);
+
         pagingViewModel.newsLiveData.observe(this, new Observer<PagedList<Pagination.ArticlesBean>>() {
             @Override
             public void onChanged(@Nullable PagedList<Pagination.ArticlesBean> lists) {
