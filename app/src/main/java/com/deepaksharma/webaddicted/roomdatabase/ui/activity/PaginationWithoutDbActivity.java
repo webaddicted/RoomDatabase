@@ -11,43 +11,44 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.deepaksharma.webaddicted.roomdatabase.GlobalClass;
 import com.deepaksharma.webaddicted.roomdatabase.R;
 import com.deepaksharma.webaddicted.roomdatabase.databinding.ActivityPaginationWithoutDbBinding;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.Pagination;
 import com.deepaksharma.webaddicted.roomdatabase.ui.adapter.PageinationWithoutDbAdapter;
 import com.deepaksharma.webaddicted.roomdatabase.ui.viewmodel.PagingViewModel;
 import com.deepaksharma.webaddicted.roomdatabase.ui.viewmodel.PagingWithoutDbViewModel;
+import com.deepaksharma.webaddicted.roomdatabase.utils.Utilities;
 
 import java.util.Objects;
 
 public class PaginationWithoutDbActivity extends AppCompatActivity {
     private ActivityPaginationWithoutDbBinding mBinding;
     private PagingWithoutDbViewModel pagingViewModel;
+    private PageinationWithoutDbAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_pagination_without_db);
         pagingViewModel = ViewModelProviders.of(this).get(PagingWithoutDbViewModel.class);
+        setAdapter();
         init();
     }
 
-    private void init() {
-        pagingViewModel.init(this);
-        mBinding.rvPagination.setLayoutManager(new LinearLayoutManager(this));
-        PageinationWithoutDbAdapter adapter = new PageinationWithoutDbAdapter();
+    private void setAdapter() {
+        mBinding.rvPagination.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        adapter = new PageinationWithoutDbAdapter();
         mBinding.rvPagination.setAdapter(adapter);
+    }
 
-//        if (!Constant.checkInternetConnection(this)) {
-//            Snackbar.make(findViewById(android.R.id.content), Constant.CHECK_NETWORK_ERROR, Snackbar.LENGTH_SHORT)
-//                    .show();
-//        }
-
-        pagingViewModel.getArticResp().observe(this, new Observer<PagedList<Pagination.ArticlesBean>>() {
-            @Override
-            public void onChanged(@Nullable PagedList<Pagination.ArticlesBean> articlesBeans) {
-                adapter.submitList(articlesBeans);
-            }
-        });
+    private void init() {
+        pagingViewModel.paginationReq(this);
+        if (!Utilities.checkInternetConnection(this)) {
+            Snackbar.make(findViewById(android.R.id.content), getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+        pagingViewModel.getArticResp().observe(this, articlesBeans -> adapter.submitList(articlesBeans));
     }
 }

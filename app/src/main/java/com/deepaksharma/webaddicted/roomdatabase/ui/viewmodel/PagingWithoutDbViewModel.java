@@ -17,34 +17,21 @@ public class PagingWithoutDbViewModel extends ViewModel {
     public LiveData<PagedList<Pagination.ArticlesBean>> newsLiveData;
     private NewsDataSourceFactory newsDataSourceFactory;
 
-    public void init(Activity pagingActivity) {
-//        LivePagedListBuilder<Integer, Pagination.ArticlesBean> livePagedListBuilder =
-//                new LivePagedListBuilder(GlobalClass.getDbInstance().newsssss(), 25);
-//        livePagedListBuilder.setBoundaryCallback(new NEWSBoundaryCallBack(pagingActivity));
-//        newsLiveData = livePagedListBuilder.build();
-        newsDataSourceFactory = new NewsDataSourceFactory(pagingActivity);
-        initializePaging();
-    }
-
     public LiveData<PagedList<Pagination.ArticlesBean>> getArticResp() {
         return newsLiveData;
     }
 
-    //    public LiveData<PagedList<NewsModelClass>> getListLiveData() {
-//        return listLiveData;
-//    }
-    private void initializePaging() {
-
-        PagedList.Config pagedListConfig =
-                new PagedList.Config.Builder()
-                        .setEnablePlaceholders(true)
-                        .setInitialLoadSizeHint(10)
-                        .setPageSize(10).build();
-
-        newsLiveData = new LivePagedListBuilder<>(newsDataSourceFactory, pagedListConfig)
+    public void paginationReq(Activity activity) {
+        newsDataSourceFactory = new NewsDataSourceFactory(activity);
+        newsLiveData = new LivePagedListBuilder<>(newsDataSourceFactory, pagedListConfig())
                 .build();
+    }
 
-
+    private PagedList.Config pagedListConfig() {
+        return new PagedList.Config.Builder()
+                .setEnablePlaceholders(true)
+                .setInitialLoadSizeHint(10)
+                .setPageSize(10).build();
     }
 
 }

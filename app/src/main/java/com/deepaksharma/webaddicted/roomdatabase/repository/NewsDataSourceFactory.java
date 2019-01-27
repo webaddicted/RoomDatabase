@@ -14,11 +14,6 @@ public class NewsDataSourceFactory extends DataSource.Factory<Integer, Paginatio
         this.mActivity = activity;
         liveData = new MutableLiveData<>();
     }
-
-    public MutableLiveData<NewsDataSourceClass> getMutableLiveData() {
-        return liveData;
-    }
-
     @Override
     public DataSource<Integer, Pagination.ArticlesBean> create() {
         NewsDataSourceClass dataSourceClass = new NewsDataSourceClass(mActivity);
