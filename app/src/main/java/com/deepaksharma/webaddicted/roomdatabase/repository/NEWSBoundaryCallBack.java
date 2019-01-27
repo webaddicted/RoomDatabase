@@ -1,23 +1,16 @@
-package com.deepaksharma.webaddicted.roomdatabase.ui;
+package com.deepaksharma.webaddicted.roomdatabase.repository;
 
 import android.arch.paging.PagedList;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.View;
 
 import com.deepaksharma.webaddicted.roomdatabase.GlobalClass;
 import com.deepaksharma.webaddicted.roomdatabase.api.APIResponse;
 import com.deepaksharma.webaddicted.roomdatabase.api.ApiClient;
-import com.deepaksharma.webaddicted.roomdatabase.api.ApiLists;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.Pagination;
 import com.deepaksharma.webaddicted.roomdatabase.ui.activity.PagingActivity;
 
-import java.util.List;
-
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 
 public class NEWSBoundaryCallBack extends PagedList.BoundaryCallback<Pagination.ArticlesBean> implements  APIResponse.ApiListener{

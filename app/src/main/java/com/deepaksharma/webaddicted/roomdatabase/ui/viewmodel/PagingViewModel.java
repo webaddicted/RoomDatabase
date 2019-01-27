@@ -7,7 +7,7 @@ import android.arch.paging.PagedList;
 
 import com.deepaksharma.webaddicted.roomdatabase.GlobalClass;
 import com.deepaksharma.webaddicted.roomdatabase.db.entity.Pagination;
-import com.deepaksharma.webaddicted.roomdatabase.ui.NEWSBoundaryCallBack;
+import com.deepaksharma.webaddicted.roomdatabase.repository.NEWSBoundaryCallBack;
 import com.deepaksharma.webaddicted.roomdatabase.ui.activity.PagingActivity;
 
 public class PagingViewModel extends ViewModel {

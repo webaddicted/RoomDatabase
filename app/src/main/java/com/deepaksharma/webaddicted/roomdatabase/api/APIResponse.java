@@ -1,5 +1,6 @@
 package com.deepaksharma.webaddicted.roomdatabase.api;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
@@ -29,7 +30,9 @@ public class APIResponse {
 
     public interface ApiListener {
         void success(String strApiName, Object response);
+
         void error(String strApiName, String error);
+
         void failure(String strApiName, String message);
     }
 
@@ -53,12 +56,17 @@ public class APIResponse {
 //        Log.d(TAG, "onResponse: Failure: "+strApiName +"  Failure Response===>"+message);
 //    }
 
+    static ProgressDialog progressDialog;
 
-    public static <T> void callRetrofit(Call<T> call, final String strApiName, Context context, final ApiListener apiListener) {
-        final ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+    public static <T> void callRetrofit(Call<T> call, final String strApiName, Activity context, final ApiListener apiListener) {
+        context.runOnUiThread(new Runnable() {
+            public void run() {
+                progressDialog = new ProgressDialog(context);
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }
+        });
 
         call.enqueue(new Callback<T>() {
             @Override
