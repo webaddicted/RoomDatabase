@@ -37,7 +37,7 @@ public class PaginationWithoutDbActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        mBinding.rvPagination.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        mBinding.rvPagination.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         adapter = new PageinationWithoutDbAdapter();
         mBinding.rvPagination.setAdapter(adapter);
     }
