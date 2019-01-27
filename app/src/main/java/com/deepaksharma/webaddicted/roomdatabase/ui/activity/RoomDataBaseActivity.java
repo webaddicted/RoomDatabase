@@ -122,4 +122,7 @@ public class RoomDataBaseActivity extends AppCompatActivity {
     public void btnWithoutDbPaging(View v){
         startActivity(new Intent(this, PaginationWithoutDbActivity.class));
     }
+    public void btnScaleRecycler(View v){
+        startActivity(new Intent(this, RecyclerScaleActivity.class));
+    }
 }

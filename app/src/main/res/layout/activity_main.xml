@@ -120,14 +120,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="btnPaging"
-                        android:text="pagination activity" />
+                        android:text="pagination with db" />
+
 
                     <Button
                         android:id="@+id/btn_paging_withoutdb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="btnWithoutDbPaging"
-                        android:text="pagination without activity" />
+                        android:text="pagination without local db" />
+
+                    <Button
+                        android:id="@+id/btn_scale_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="btnScaleRecycler"
+                        android:text="scale recycler " />
                     <!--android:onClick="@{handler::insertJsonArray}"-->
                 </LinearLayout>
             </ScrollView>

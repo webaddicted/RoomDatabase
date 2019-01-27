@@ -37,7 +37,6 @@ public class PageinationWithoutDbAdapter extends PagedListAdapter<Pagination.Art
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         RowPagingItemBinding itemBinding = DataBindingUtil.
                 inflate(LayoutInflater.from(parent.getContext()),
                         R.layout.row_paging_item,
